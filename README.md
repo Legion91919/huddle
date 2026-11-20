@@ -2,6 +2,17 @@
 
 A digital banking app for stokvel savings groups, built for Thrive Mutual (fictional), a financial cooperative. Every name, user and number in this repo is invented.
 
+
+## See it in action
+
+![Huddle walkthrough: group balance, contributing, the updated ledger history and the non-member view](docs/media/demo.gif)
+
+| Group balance | Contribute | Mobile |
+|---|---|---|
+| ![Group balance and members](docs/media/group.png) | ![Contribute dialog](docs/media/contribute.png) | ![Mobile view](docs/media/mobile.png) |
+
+Full-quality video: [docs/media/demo.mp4](docs/media/demo.mp4). Recorded from the running app with `demo/` (`cd demo && npm install && npm run record`).
+
 ## Design at a glance
 **Brief.** Stokvel groups track contributions in notebooks and chat threads, so treasurers can't prove balances and members don't trust the totals. Huddle lets a member pay their contribution from a phone, exactly once, and shows everyone a group balance that is provably the sum of ledger entries.
 

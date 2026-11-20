@@ -1,0 +1,8 @@
+{
+  "start": [
+    { "name": "api", "cmd": "dotnet run --project src/Huddle.Api --no-build", "env": { "ASPNETCORE_ENVIRONMENT": "Development", "ASPNETCORE_URLS": "http://localhost:5106" }, "ready": "http://localhost:5106/health/ready" },
+    { "name": "web", "cmd": "npm run dev -- --port 5173 --strictPort", "cwd": "web", "ready": "http://localhost:5173" }
+  ],
+  "url": "http://localhost:5173",
+  "viewport": { "width": 1280, "height": 800 }
+}
