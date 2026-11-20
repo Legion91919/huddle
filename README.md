@@ -15,6 +15,19 @@ flowchart LR
   api -.->|later, outbox| rails[Payment rails]
 ```
 
+
+## Run it in GitHub Codespaces
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/Legion91919/huddle?quickstart=1)
+
+The dev container installs the SDKs, restores packages and runs every test once on first start. The same setup works locally with VS Code's Dev Containers extension.
+
+| What | Command | Port |
+|---|---|---|
+| API (Huddle) | `ASPNETCORE_ENVIRONMENT=Development ASPNETCORE_URLS=http://0.0.0.0:5106 dotnet run --project src/Huddle.Api` | 5106 |
+| Web app | `cd web && npm run dev` | 5173 |
+| All tests (same as CI) | `scripts/test-all.sh` | - |
+
 ## What it does today (slice 1)
 - Stokvel group screen: group balance, this month's progress, members, contribution history with balance after each payment.
 - Contribute dialog: amount in rand and cents, a fresh idempotency key per attempt, safe automatic retries on network errors.
