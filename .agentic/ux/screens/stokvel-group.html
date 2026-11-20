@@ -1,0 +1,77 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Huddle · Stokvel group (final)</title><style>:root{--color-bg:#f6f3ee;--color-surface:#ffffff;--color-surface-sunk:#efeae2;--color-border:#d9d1c4;--color-text:#1b2a27;--color-muted:#53625e;--color-accent:#0d6b58;--color-accent-strong:#09503f;--color-on-accent:#ffffff;--color-accent-soft:#dcefe9;--color-brand-mark:#b8650f;--color-success:#17714a;--color-success-soft:#e1f2e8;--color-warning:#8a5300;--color-warning-soft:#fbefd9;--color-danger:#b42318;--color-danger-soft:#fde8e6;--color-focus:#1f5fbf;--font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;--font-xs:12px;--font-sm:14px;--font-md:16px;--font-lg:20px;--font-xl:28px;--font-display:36px;--space-xs:4px;--space-sm:8px;--space-md:16px;--space-lg:24px;--space-xl:32px;--space-xxl:48px;--radius-sm:6px;--radius-md:12px;--radius-lg:20px;--radius-pill:999px;--shadow-card:0 1px 2px rgba(27,42,39,.06), 0 4px 16px rgba(27,42,39,.06);--max-width:720px;--touch:44px;}
+*{box-sizing:border-box}body{margin:0;background:var(--color-bg);color:var(--color-text);font:var(--font-md)/1.5 var(--font-family)}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+button{font:inherit;min-height:var(--touch);border-radius:var(--radius-md);border:1px solid var(--color-border);background:var(--color-surface);color:var(--color-text);padding:0 var(--space-md);cursor:pointer}
+button.primary{background:var(--color-accent);border-color:var(--color-accent);color:var(--color-on-accent);font-weight:600}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid var(--color-focus);outline-offset:2px}
+.muted{color:var(--color-muted)}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.brand{display:flex;align-items:center;gap:var(--space-sm);font-weight:700;letter-spacing:.2px}
+.avatar{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--color-accent-soft);color:var(--color-accent-strong);font-size:var(--font-sm);font-weight:700}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:var(--font-xs);font-weight:600;padding:2px 8px;border-radius:var(--radius-pill)}
+.badge.ok{background:var(--color-success-soft);color:var(--color-success)}.badge.due{background:var(--color-warning-soft);color:var(--color-warning)}
+
+.wrap{max-width:var(--max-width);margin:auto;padding:var(--space-md)}
+header{display:flex;justify-content:space-between;align-items:center;padding:var(--space-sm) 0}
+.switcher{display:flex;gap:4px;flex-wrap:wrap;font-size:var(--font-xs);margin:0 0 var(--space-md);padding:var(--space-xs);background:var(--color-surface-sunk);border-radius:var(--radius-md)}
+.switcher button{min-height:32px;font-size:var(--font-xs);padding:0 10px}.switcher button[aria-pressed=true]{background:var(--color-text);color:var(--color-surface)}
+.card{background:var(--color-surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:var(--space-lg);margin-bottom:var(--space-md)}
+.label{color:var(--color-muted);font-size:var(--font-sm)}.amount{font-size:var(--font-display);font-weight:700;font-variant-numeric:tabular-nums;margin:2px 0 var(--space-sm)}
+.progress{height:8px;background:var(--color-surface-sunk);border-radius:var(--radius-pill);overflow:hidden}.progress span{display:block;height:100%;background:var(--color-accent)}
+.nudge{display:flex;gap:var(--space-md);align-items:center;justify-content:space-between;background:var(--color-accent-soft);color:var(--color-accent-strong);border-radius:var(--radius-md);padding:var(--space-md);margin-top:var(--space-md)}
+.nudge p{margin:0}h2{font-size:var(--font-md);margin:0 0 var(--space-sm)}
+.members{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--space-sm)}
+.members li{display:flex;gap:var(--space-sm);align-items:center;font-size:var(--font-sm)}.members small{display:block;color:var(--color-muted)}
+table{width:100%;border-collapse:collapse;font-size:var(--font-sm)}th,td{padding:var(--space-sm) 4px;border-bottom:1px solid var(--color-border);text-align:left}
+th{color:var(--color-muted);font-weight:600}th.num{text-align:right}caption{text-align:left;font-weight:700;padding-bottom:var(--space-sm)}
+.hide-sm{}@media(max-width:480px){.hide-sm{display:none}.amount{font-size:32px}}
+.skel{background:linear-gradient(90deg,var(--color-surface-sunk),#f7f4ef,var(--color-surface-sunk));background-size:200% 100%;animation:sh 1.2s infinite;border-radius:var(--radius-sm);height:16px;margin:8px 0}
+@keyframes sh{to{background-position:-200% 0}}@media(prefers-reduced-motion:reduce){.skel{animation:none}}
+.alert{border-radius:var(--radius-md);padding:var(--space-md);display:flex;gap:var(--space-md);align-items:flex-start}.alert.err{background:var(--color-danger-soft);color:var(--color-danger)}.alert.ok{background:var(--color-success-soft);color:var(--color-success)}
+.empty{text-align:center;padding:var(--space-xl) var(--space-md)}
+[data-state]{display:none}body[data-show=loading] [data-state~=loading],body[data-show=empty] [data-state~=empty],body[data-show=error] [data-state~=error],body[data-show=success] [data-state~=success]{display:block}
+dialog{border:0;border-radius:var(--radius-lg);padding:0;width:min(420px,calc(100vw - 32px));box-shadow:0 20px 60px rgba(27,42,39,.3)}dialog::backdrop{background:rgba(27,42,39,.45)}
+dialog form{padding:var(--space-lg)}dialog h2{font-size:var(--font-lg)}
+.field label{display:block;font-weight:600;margin-bottom:4px}.field .in{display:flex;align-items:center;border:1px solid var(--color-border);border-radius:var(--radius-md);padding:0 var(--space-md);min-height:52px;background:var(--color-surface)}
+.field .in span{font-weight:700;color:var(--color-muted)}.field input{border:0;font:inherit;font-size:var(--font-xl);font-variant-numeric:tabular-nums;text-align:right;width:100%;background:transparent;color:var(--color-text)}
+.field .in:focus-within{outline:3px solid var(--color-focus);outline-offset:2px}.hint{font-size:var(--font-sm);color:var(--color-muted);margin:4px 0 0}.hint.err{color:var(--color-danger)}
+.chips{display:flex;gap:var(--space-sm);margin:var(--space-md) 0}.chips button{min-height:36px;font-variant-numeric:tabular-nums;border-radius:var(--radius-pill)}
+.actions{display:flex;gap:var(--space-sm);justify-content:flex-end;margin-top:var(--space-lg)}.key{font-size:var(--font-xs);color:var(--color-muted);word-break:break-all}
+</style></head><body data-show="success"><div class="wrap">
+<header><div class="brand"><svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="var(--color-accent)"/><circle cx="9.5" cy="14" r="3.6" fill="#fff"/><circle cx="22.5" cy="14" r="3.6" fill="#fff"/><circle cx="16" cy="9.5" r="3.6" fill="#fff"/><path d="M8 20c2.5 4 5 5.5 8 5.5s5.5-1.5 8-5.5" fill="none" stroke="var(--color-brand-mark)" stroke-width="3" stroke-linecap="round"/></svg> Huddle</div><span class="avatar" aria-label="Signed in as Thandi Mokoena">TM</span></header>
+<div class="switcher" role="group" aria-label="Design state (review only)"><b style="align-self:center;padding:0 6px">State:</b>
+<button data-to="loading" aria-pressed="false">Loading</button><button data-to="empty" aria-pressed="false">Empty</button><button data-to="error" aria-pressed="false">Error</button><button data-to="success" aria-pressed="true">Success</button>
+<button id="openDialog">Open contribute dialog</button></div>
+
+<section data-state="loading" aria-busy="true" aria-label="Loading group"><div class="card"><div class="skel" style="width:40%"></div><div class="skel" style="height:36px;width:60%"></div><div class="skel"></div></div><div class="card"><div class="skel"></div><div class="skel"></div><div class="skel" style="width:70%"></div></div></section>
+
+<section data-state="error"><div class="card"><div class="alert err" role="alert"><div><b>We couldn't load Masakhane Savings Circle.</b><p style="margin:4px 0 0">Your money is safe; this is a connection problem. Try again in a moment.</p></div></div><p><button class="primary">Try again</button></p></div></section>
+
+<section data-state="success empty"><div class="card" aria-labelledby="gname"><div class="label" id="gname">Masakhane Savings Circle · group balance</div>
+<div class="amount" data-state="success">R13 550.00</div><div class="amount" data-state="empty">R0.00</div>
+<div data-state="success"><div class="progress" role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="6" aria-label="Members paid in November"><span style="width:50%"></span></div>
+<p class="label" style="margin:var(--space-sm) 0 0">November: 3 of 6 paid · R1 500.00 collected · monthly R500.00 by the 25th</p></div>
+<div class="nudge"><p><b>Your November contribution is due.</b><br>R500.00 by 25 Nov · limit R2 000.00 · wallet R5 400.00</p><button class="primary" id="openDialog2">Contribute</button></div></div>
+<div class="card"><h2>Members (6)</h2><ul class="members"><li><span class='avatar'>LD</span><span>Lerato Dube<small>Chairperson · <span style="color:var(--color-success)">✓ paid Nov</span></small></span></li><li><span class='avatar'>TM</span><span>Thandi Mokoena<small>Treasurer · due by 25 Nov</small></span></li><li><span class='avatar'>AK</span><span>Ayanda Khumalo<small>Member · due by 25 Nov</small></span></li><li><span class='avatar'>KM</span><span>Kagiso Molefe<small>Member · due by 25 Nov</small></span></li><li><span class='avatar'>NZ</span><span>Nomsa Zulu<small>Member · <span style="color:var(--color-success)">✓ paid Nov</span></small></span></li><li><span class='avatar'>SN</span><span>Sipho Ndlovu<small>Member · <span style="color:var(--color-success)">✓ paid Nov</span></small></span></li></ul></div>
+<div class="card" data-state="success"><table><caption>Contribution history <span class="muted" style="font-weight:400">· 27</span></caption><thead><tr><th>Date</th><th>Member</th><th class="num">Amount</th><th class="num hide-sm">Balance after</th></tr></thead><tbody><tr><td>6 Nov 2026<span class='hide-sm muted'>, 12:55</span></td><td>Sipho Ndlovu</td><td class='num'>R500.00</td><td class='num hide-sm'>R13 550.00</td></tr><tr><td>3 Nov 2026<span class='hide-sm muted'>, 10:02</span></td><td>Nomsa Zulu</td><td class='num'>R500.00</td><td class='num hide-sm'>R13 050.00</td></tr><tr><td>2 Nov 2026<span class='hide-sm muted'>, 18:00</span></td><td>Lerato Dube</td><td class='num'>R500.00</td><td class='num hide-sm'>R12 550.00</td></tr><tr><td>20 Oct 2026<span class='hide-sm muted'>, 07:56</span></td><td>Kagiso Molefe</td><td class='num'>R500.00</td><td class='num hide-sm'>R12 050.00</td></tr><tr><td>14 Oct 2026<span class='hide-sm muted'>, 20:49</span></td><td>Ayanda Khumalo</td><td class='num'>R500.00</td><td class='num hide-sm'>R11 550.00</td></tr><tr><td>10 Oct 2026<span class='hide-sm muted'>, 12:42</span></td><td>Sipho Ndlovu</td><td class='num'>R450.00</td><td class='num hide-sm'>R11 050.00</td></tr><tr><td>4 Oct 2026<span class='hide-sm muted'>, 09:28</span></td><td>Thandi Mokoena</td><td class='num'>R500.00</td><td class='num hide-sm'>R10 600.00</td></tr><tr><td>3 Oct 2026<span class='hide-sm muted'>, 18:21</span></td><td>Lerato Dube</td><td class='num'>R500.00</td><td class='num hide-sm'>R10 100.00</td></tr></tbody></table></div>
+<div class="card empty" data-state="empty"><h2>No contributions yet</h2><p class="muted">When members contribute, every rand shows up here with the balance after it.</p><button class="primary">Make the first contribution</button></div></section>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlgTitle"><form method="dialog" id="f"><h2 id="dlgTitle">Contribute to Masakhane</h2>
+<div class="field"><label for="amt">Amount</label><div class="in"><span>R</span><input id="amt" inputmode="decimal" autocomplete="off" value="500.00" aria-describedby="amtHint"></div>
+<p class="hint" id="amtHint">Up to R2 000.00 per contribution · wallet R5 400.00</p></div>
+<div class="chips" role="group" aria-label="Quick amounts"><button type="button">R500.00</button><button type="button">R750.00</button><button type="button">R1 000.00</button></div>
+<div id="dState" aria-live="polite"></div>
+<p class="key">Reference (idempotency key): 7f3c9a2e-41d8-4b6a-9e0f-2c5d8b1a6e47</p>
+<div class="actions"><button value="cancel">Cancel</button><button class="primary" id="send" type="button">Contribute R500.00</button></div>
+<div class="switcher" style="margin-top:var(--space-md)" role="group" aria-label="Dialog state (review only)"><button type="button" data-d="idle">Idle</button><button type="button" data-d="invalid">Invalid</button><button type="button" data-d="sending">Sending</button><button type="button" data-d="retrying">Retrying</button><button type="button" data-d="failed">Failed</button><button type="button" data-d="done">Done</button></div>
+</form></dialog>
+<script>
+const b=document.body;document.querySelectorAll('[data-to]').forEach(x=>x.onclick=()=>{b.dataset.show=x.dataset.to;document.querySelectorAll('[data-to]').forEach(y=>y.setAttribute('aria-pressed',y===x))});
+const d=document.getElementById('dlg');['openDialog','openDialog2'].forEach(i=>document.getElementById(i).onclick=()=>d.showModal());
+const s=document.getElementById('dState'),h=document.getElementById('amtHint'),send=document.getElementById('send');
+const states={idle:['',''],invalid:['','R2 500.00 is above your per-contribution limit of R2 000.00.'],sending:['<p class="hint">Sending… please keep this open.</p>',''],
+retrying:['<p class="hint">Connection dropped. Retrying safely with the same reference (attempt 2 of 3) — you will not be charged twice.</p>',''],
+failed:['<div class="alert err" role="alert">We could not confirm your contribution. Nothing was taken twice. <button type="button">Try again</button></div>',''],
+done:['<div class="alert ok" role="status"><b>R500.00 contributed.</b> New group balance R14 050.00.</div>','']};
+document.querySelectorAll('[data-d]').forEach(x=>x.onclick=()=>{const [m,e]=states[x.dataset.d];s.innerHTML=m;h.textContent=e||'Up to R2 000.00 per contribution · wallet R5 400.00';h.className='hint'+(e?' err':'');send.disabled=x.dataset.d==='sending'||x.dataset.d==='retrying';send.textContent=x.dataset.d==='done'?'Close':'Contribute R500.00'});
+</script></body></html>

@@ -1,0 +1,41 @@
+/* Generated from .agentic/ux/design-tokens.json. Components use these variables only. */
+:root {
+  --color-bg: #f6f3ee;
+  --color-surface: #ffffff;
+  --color-surface-sunk: #efeae2;
+  --color-border: #d9d1c4;
+  --color-text: #1b2a27;
+  --color-muted: #53625e;
+  --color-accent: #0d6b58;
+  --color-accent-strong: #09503f;
+  --color-on-accent: #ffffff;
+  --color-accent-soft: #dcefe9;
+  --color-brand-mark: #b8650f;
+  --color-success: #17714a;
+  --color-success-soft: #e1f2e8;
+  --color-warning: #8a5300;
+  --color-warning-soft: #fbefd9;
+  --color-danger: #b42318;
+  --color-danger-soft: #fde8e6;
+  --color-focus: #1f5fbf;
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 20px;
+  --font-xl: 28px;
+  --font-display: 36px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-xxl: 48px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(27,42,39,.06), 0 4px 16px rgba(27,42,39,.06);
+  --max-width: 720px;
+  --touch: 44px;
+}

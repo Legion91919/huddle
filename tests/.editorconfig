@@ -1,0 +1,6 @@
+# Test-only analyzer relaxations. Production code keeps the full rule set from Directory.Build.props.
+[*.cs]
+# Test names read as sentences: Given_when_then.
+dotnet_diagnostic.CA1707.severity = none
+# Inline expected arrays keep assertions readable; allocation cost is irrelevant in tests.
+dotnet_diagnostic.CA1861.severity = none

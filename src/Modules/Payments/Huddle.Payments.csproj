@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Payments module. Everything is internal except the AddXModule registration. Talks to other modules only through SharedKernel contracts. -->
+  <PropertyGroup>
+    <RootNamespace>Huddle.Payments</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <InternalsVisibleTo Include="Huddle.Tests" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../Huddle.SharedKernel/Huddle.SharedKernel.csproj" />
+  </ItemGroup>
+</Project>

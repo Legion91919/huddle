@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Shared kernel: the Money value object and the public contracts modules talk through. No module references another module. -->
+  <PropertyGroup>
+    <RootNamespace>Huddle.SharedKernel</RootNamespace>
+  </PropertyGroup>
+</Project>
